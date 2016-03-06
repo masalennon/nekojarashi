@@ -2,9 +2,12 @@ package com.example.GameApp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;//SDKからクラスを読み込むのがimport
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MyActivity extends Activity {
     /**
@@ -23,6 +26,18 @@ public class MyActivity extends Activity {
             public void onClick(View v) {
                 // ここにクリックされたときの処理を記述
                 Log.d("test", "onclick");
+
+                EditText edit = (EditText)findViewById(R.id.editText);
+                String inputText = edit.getText().toString() ;
+                Log.d("test", inputText);
+
+                TextView answer = (TextView)findViewById(R.id.answer);
+                if (inputText.equals("apple")) {
+                    answer.setText("Correct");
+                } else {
+                    answer.setText("Miss");
+                }
+
             }
         });
     }
